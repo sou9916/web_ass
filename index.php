@@ -5,7 +5,7 @@ $formSubmitted = false;
 $formData = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize and validate input
+
     $formData = [
         'firstName' => htmlspecialchars(trim($_POST['firstName'] ?? '')),
         'lastName' => htmlspecialchars(trim($_POST['lastName'] ?? '')),
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'comments' => htmlspecialchars(trim($_POST['comments'] ?? ''))
     ];
     
-    // Validate required fields
+    
     $errors = [];
     if (empty($formData['firstName'])) $errors[] = 'First name is required';
     if (empty($formData['lastName'])) $errors[] = 'Last name is required';
@@ -407,14 +407,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="input-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+    <label for="email">Email Address *</label>
+    <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        title="Please enter a valid email address (e.g., name@example.com)">
+</div>
 
-                    <div class="input-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
+<div class="input-group">
+    <label for="phone">Phone Number *</label>
+    <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        required
+        pattern="[0-9]{10}" 
+        maxlength="10"
+        title="Please enter a 10-digit phone number (numbers only)">
+</div>
+
 
                     <div class="input-group">
                         <label for="dob">Date of Birth *</label>
