@@ -391,6 +391,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
             <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="btn-back">Submit Another Registration</a>
+            
         </div>
         <?php else: ?>
         <div class="form-section">
@@ -405,17 +406,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label for="lastName">Last Name *</label>
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
-
-                    <div class="input-group">
+<div class="input-group">
     <label for="email">Email Address *</label>
     <input 
         type="email" 
         id="email" 
         name="email" 
         required
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-        title="Please enter a valid email address (e.g., name@example.com)">
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.com$"
+        title="Please enter a valid .com email address (e.g., name@example.com)">
 </div>
+
 
 <div class="input-group">
     <label for="phone">Phone Number *</label>
